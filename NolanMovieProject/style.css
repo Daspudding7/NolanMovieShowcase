@@ -45,13 +45,14 @@ header {
     height: auto;
     border-radius: 5px;
     border: 2px solid gray;
+    transition: ease-out 0.35s;
 }
 
 
 #carousel img:hover {
 
     transform: scale(150%);
-    transition: ease-in-out 0.5s;
+    z-index: 2;
 }
 
 @media only screen and (max-width: 1325px){
