@@ -1,16 +1,59 @@
-const NolanMovies = ["Batman Begins (2005)", "Dunkirk (2017)", "Following (1999)", "Inception (2010)", "Insomnia (2002)", "Interstellar (2014)", "Memento (2000)", "Tenet (2020)", "The Dark Knight (2008)", "The Dark Knight Rises (2012)", "The Prestige (2006)", "Oppenheimer (2023)"]
+const youtubeURL = "https://www.youtube.com/";
+
+let NolanMovies = {
+
+    "Batman Begins (2005)": "watch?v=neY2xVmOfUM",
+    "Dunkirk (2017)" : "watch?v=F-eMt3SrfFU",
+    "Following (1999)" : "watch?v=62TTN6gD2So",
+    "Inception (2010)" : "watch?v=YoHD9XEInc0",
+    "Insomnia (2002)" : "watch?v=emIHzg4VH8A",
+    "Interstellar (2014)" : "watch?v=zSWdZVtXT7E",
+    "Memento (2000)" : "watch?v=4CV41hoyS8A",
+    "Tenet (2020)" : "watch?v=LdOM0x0XDMo",
+    "The Dark Knight (2008)" : "watch?v=EXeTwQWrcwY",
+    "The Dark Knight Rises (2012)" : "watch?v=GokKUqLcvD8",
+    "The Prestige (2006)" : "watch?v=ELq7V8vkekI",
+    "Oppenheimer (2023)" :  "watch?v=uYPbbksJxIg"
+
+};
 
 
-let carousel = document.getElementById("carousel");
+const movieTitles = Object.keys(NolanMovies);
+const movieTrailers = Object.values(NolanMovies);
 
-for (let i = 0; i < NolanMovies.length; i++) {
 
-    let imageElement = document.createElement("img");
-    imageElement.src = `images/${NolanMovies[i]}.jpeg`
+const LoadCarousel = () => {
 
-    carousel.appendChild(imageElement);
+    
+    let carousel = document.getElementById("carousel");
+
+    for (let i = 0; i < movieTitles.length; i++) {
+
+        let spanParent = document.createElement("span");
+        let imageElement = document.createElement("img");
+        imageElement.src = `images/${movieTitles[i]}.jpeg`;
+        imageElement.setAttribute("data-movieIndex", i);
+
+        imageElement.addEventListener("click", DirectToTrailer);
+
+        spanParent.appendChild(imageElement);
+        spanParent.setAttribute("style", `--i:${i}`);
+
+    
+        carousel.appendChild(spanParent);
+
+}
 
 }
 
 
+function DirectToTrailer(event) {
 
+    console.log(event.target);
+    let dataIndex = event.target.getAttribute("data-movieIndex");
+
+    window.open(youtubeURL + movieTrailers[dataIndex]);
+
+}
+
+LoadCarousel();
