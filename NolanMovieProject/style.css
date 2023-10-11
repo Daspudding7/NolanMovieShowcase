@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -25,16 +26,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-.trailertext {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #f3f4f7;
-    font-family: 'poppins';
-    font-size: 1.2em;
 }
 
 
@@ -88,7 +79,7 @@ a:focus::after{
 
 
 .bodyrest {
-    background: linear-gradient(#111111,  lightgray);
+    background: linear-gradient(#111111, lightgray);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,6 +97,7 @@ a:focus::after{
 
 
 #carousel span {
+
     position: absolute;
     top: 0;
     left: 0;
@@ -113,7 +105,7 @@ a:focus::after{
     height: 100%;
     transform-origin: center;
     transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i)* 30deg)) translateZ(500px);
+    transform: rotateY(calc(var(--i)* var(--carousel-image-angle))) translateZ(500px);
     -webkit-box-reflect: below 15px linear-gradient(transparent, transparent, #0004);
 
 }

@@ -1,6 +1,6 @@
 const youtubeURL = "https://www.youtube.com/";
 
-let NolanMovies = {
+const NolanMovies = {
 
     "Batman Begins (2005)": "watch?v=neY2xVmOfUM",
     "Dunkirk (2017)" : "watch?v=F-eMt3SrfFU",
@@ -15,7 +15,8 @@ let NolanMovies = {
     "The Prestige (2006)" : "watch?v=ELq7V8vkekI",
     "Oppenheimer (2023)" :  "watch?v=uYPbbksJxIg"
 
-};
+}; 
+
 
 
 const movieTitles = Object.keys(NolanMovies);
@@ -42,7 +43,9 @@ const LoadCarousel = () => {
     
         carousel.appendChild(spanParent);
 
-}
+    }
+
+    CalculateImageAngle();
 
 }
 
@@ -55,5 +58,26 @@ function DirectToTrailer(event) {
     window.open(youtubeURL + movieTrailers[dataIndex]);
 
 }
+
+function CalculateImageAngle() {
+
+    const circleInDegrees = 360;
+
+    let movieCount = Object.keys(NolanMovies).length
+    
+    let carouselImageAngle = circleInDegrees / movieCount;
+
+    let cssElementWithAngleVariable = document.querySelectorAll("#carousel span");
+    
+    for(let i= 0; i< cssElementWithAngleVariable.length; i++){
+
+        cssElementWithAngleVariable[i].style.setProperty('--carousel-image-angle', `${carouselImageAngle}deg`);
+
+    }
+
+    console.log(cssElementWithAngleVariable);
+
+}
+
 
 LoadCarousel();
