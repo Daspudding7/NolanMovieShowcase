@@ -17,6 +17,7 @@ header {
    
 }
 
+
 h1 {
     color: #f3f4f7;
     font-family: 'Tangerine';
@@ -26,15 +27,16 @@ h1 {
     align-items: center;
 }
 
-.Menubox {
-    grid-column: 1;
 
+.trailertext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f3f4f7;
+    font-family: 'poppins';
+    font-size: 1.2em;
 }
 
-.SliderBox {
-
-    grid-column: 3;
-}
 
 .invisDiv {
     width: 100%;
@@ -45,48 +47,53 @@ h1 {
     justify-content: space-evenly;
 }
 
+/* hyperlinks styling */
 a {
     text-decoration: none;
-    color: inherit;
-}
-
-a:visited {
-    text-decoration: none;
-    color: inherit;
-}
-
-
-.regButton {
-    border-radius: 20px;
-    background-color: gray;
-    border: 2px #f3f4f7 solid;
-    font-family: 'Poppins';
-    font-size: 20px;
-    padding: 9px;
-    min-width: fit-content;
-    width: 150px;
-    height: 50px;
-    transition: 0.3s ease-out;
-    font-weight: 500;
-    cursor: pointer;
-
-}
-
-.regButton:hover {
-
-    transform: scale(120%);
     color: #f3f4f7;
-    transition: 0.3s ease-out;
+    font-family: 'poppins';
+    font-size: 1.5em;
+    display: inline-block;
+    position: relative;
 
 }
+
+a::after {
+
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f3f4f7;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+a:hover::after,
+a:focus::after{
+
+    transform: scaleX(1);
+    transform-origin: bottom left;
+
+}
+
+
+
+
+
 
 
 .bodyrest {
-    background-color: #111111;
+    background: linear-gradient(#111111,  lightgray);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    height: 100%;
 }
 
 #carousel {
@@ -121,9 +128,10 @@ a:visited {
 
 #carousel span img:hover {
 
-    transform: scale(150%);
+    transform: scale(135%);
     cursor: pointer;
     transition: transform 0.45s ease-out ;
+    border: 1px black solid;
 }
 
 
